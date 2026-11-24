@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radio Free Classical — Classical Music… Free to All</title>
+<meta name="description" content="Radio Free Classical is an independent, commercial-free classical music station from Lanesville, Indiana, created by veteran public radio host Alan Brandt. Listen live, anywhere.">
+<link rel="icon" href="assets/RFC-ICON.png">
+<meta property="og:title" content="Radio Free Classical">
+<meta property="og:description" content="Independent, commercial-free classical radio. From Lanesville, Indiana to the world.">
+<meta property="og:image" content="assets/donate-banner.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c8161d; --red-dark:#9e0f15; --ink:#1d1a17; --ink-soft:#4a443d;
+    --paper:#faf6ee; --paper-2:#f2ebdd; --line:#e2d8c4; --gold:#b8892f;
+    --serif:"Cormorant Garamond", Georgia, serif; --sans:Inter, system-ui, sans-serif;
+    --wrap:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:76px}
+  body{margin:0; font:17px/1.65 var(--sans); color:var(--ink); background:var(--paper)}
+  img{max-width:100%; display:block}
+  a{color:var(--red)}
+  .wrap{max-width:var(--wrap); margin:0 auto; padding:0 24px}
+  h1,h2,h3{font-family:var(--serif); line-height:1.1; margin:0 0 .4em; font-weight:700}
+  h2{font-size:clamp(2.1rem,4vw,3rem)}
+  h3{font-size:1.6rem}
+  .eyebrow{font:600 .78rem/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--red); margin:0 0 14px}
+  .lede{font-size:1.15rem; color:var(--ink-soft); max-width:62ch}
+  section{padding:88px 0}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:999px; font-weight:600; text-decoration:none; font-size:.98rem; transition:transform .15s, background .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-red{background:var(--red); color:#fff}
+  .btn-red:hover{background:var(--red-dark)}
+  .btn-ghost{border:1.5px solid currentColor; color:inherit}
+  .btn-light{background:#fff; color:var(--red)}
+
+  /* Header */
+  .top{position:sticky; top:0; z-index:50; background:rgba(250,246,238,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex; align-items:center; justify-content:space-between; height:64px; gap:20px}
+  .brand img{height:44px; width:auto}
+  .nav{display:flex; gap:26px; align-items:center}
+  .nav a{color:var(--ink); text-decoration:none; font-weight:500; font-size:.95rem}
+  .nav a:hover{color:var(--red)}
+  .nav .btn{color:#fff; padding:9px 18px}
+  .menu-btn{display:none; background:none; border:0; font-size:1.6rem; cursor:pointer; color:var(--ink)}
+
+  /* Alert bar */
+  .alert{background:var(--ink); color:#f5efe3; font-size:.92rem; text-align:center; padding:10px 20px}
+  .alert a{color:#fff; font-weight:600}
+
+  /* Hero */
+  .hero{padding:72px 0 80px; background:
+      radial-gradient(1200px 500px at 85% -10%, rgba(200,22,29,.10), transparent 60%),
+      linear-gradient(var(--paper), var(--paper-2))}
+  .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center}
+  .hero h1{font-size:clamp(2.8rem,6vw,4.6rem); letter-spacing:-.01em}
+  .hero h1 em{color:var(--red); font-style:italic; font-weight:600}
+  .hero .lede{margin:0 0 28px}
+  .hero .ctas{display:flex; gap:12px; flex-wrap:wrap}
+  .place{margin-top:28px; font-size:.9rem; color:var(--ink-soft); display:flex; align-items:center; gap:10px}
+  .place::before{content:""; width:28px; height:2px; background:var(--gold)}
+  .player{background:#111; border-radius:18px; padding:18px; box-shadow:0 30px 60px -25px rgba(0,0,0,.45)}
+  .player .live{display:flex; align-items:center; gap:10px; color:#eee; font:600 .78rem var(--sans); letter-spacing:.14em; text-transform:uppercase; margin:2px 4px 14px}
+  .player .dot{width:9px; height:9px; border-radius:50%; background:#ff3b3b; box-shadow:0 0 0 0 rgba(255,59,59,.7); animation:pulse 1.8s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
+  .player iframe{width:100%; height:316px; border:0; border-radius:10px; display:block}
+
+  /* Support */
+  .support{background:var(--red); color:#fff; position:relative; overflow:hidden}
+  .support .wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center}
+  .support .eyebrow{color:#ffd9a8}
+  .support h2{color:#fff}
+  .support p{color:#fde9e9}
+  .goal{background:rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.25); border-radius:18px; padding:30px}
+  .goal .big{font:700 3.6rem/1 var(--serif)}
+  .goal .big small{font:500 1rem var(--sans); opacity:.85}
+  .goal ul{list-style:none; padding:0; margin:18px 0 26px; display:grid; gap:8px}
+  .goal li{display:flex; gap:10px}
+  .goal li::before{content:"♪"; color:#ffd9a8}
+  .goal .ctas{display:flex; gap:12px; flex-wrap:wrap}
+  .deadline{display:inline-block; background:#fff; color:var(--red); font-weight:700; font-size:.85rem; padding:6px 12px; border-radius:6px; margin-bottom:18px}
+  details.letter{margin-top:22px; border-top:1px solid rgba(255,255,255,.3); padding-top:16px}
+  details.letter summary{cursor:pointer; font-weight:600}
+  details.letter blockquote{margin:16px 0 0; padding:0 0 0 18px; border-left:3px solid #ffd9a8; font-family:var(--serif); font-size:1.2rem; line-height:1.5}
+  details.letter blockquote p{color:#fff; margin:0 0 .8em}
+
+  /* Programs */
+  .sunday-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; margin:36px 0 48px; background:#fff}
+  .sunday-strip div{padding:18px 20px; border-right:1px solid var(--line)}
+  .sunday-strip div:last-child{border-right:0}
+  .sunday-strip b{display:block; font:700 1.8rem/1 var(--serif); color:var(--red)}
+  .sunday-strip span{font-size:.92rem; color:var(--ink-soft)}
+  .programs{display:grid; grid-template-columns:repeat(2,1fr); gap:28px}
+  .card{background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column}
+  .card .media{aspect-ratio:16/10; background:var(--paper-2); display:flex; align-items:center; justify-content:center; overflow:hidden}
+  .card .media img{width:100%; height:100%; object-fit:cover}
+  .card .media.contain img{object-fit:contain; padding:14px}
+  .card .body{padding:24px 26px 28px}
+  .when{display:inline-block; font:600 .75rem var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px}
+  .card p{margin:0; color:var(--ink-soft)}
+  .card.wide{grid-column:1 / -1; flex-direction:row}
+  .card.wide .media{flex:0 0 42%; aspect-ratio:auto}
+  .card.wide .body{align-self:center}
+
+  /* Symphony archive */
+  .archive{background:var(--ink); color:#efe8da}
+  .archive h2{color:#fff}
+  .archive .lede{color:#cfc6b6}
+  .next{margin:30px 0; padding:26px 28px; border-radius:16px; background:linear-gradient(135deg, #2b2621, #221e1a); border:1px solid #3d362e}
+  .next .when{color:#e2b866}
+  .next h3{color:#fff}
+  .next p{margin:0; color:#cfc6b6}
+  .sym-list{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; list-style:none; padding:0; margin:0}
+  .sym-list details{background:#26221e; border:1px solid #3a332b; border-radius:12px; padding:16px 20px}
+  .sym-list summary{cursor:pointer; font:600 1.2rem var(--serif); color:#fff; list-style:none; display:flex; justify-content:space-between; gap:12px}
+  .sym-list summary::after{content:"+"; color:#e2b866; font-family:var(--sans)}
+  .sym-list details[open] summary::after{content:"–"}
+  .sym-list p{margin:10px 0 0; font-size:.95rem; color:#cfc6b6}
+
+  /* Notes */
+  .notes{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:36px}
+  .note{background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden}
+  .note img{aspect-ratio:4/3; object-fit:cover; width:100%}
+  .note .body{padding:22px 24px 26px}
+  .note p{margin:0 0 .7em; color:var(--ink-soft); font-size:.97rem}
+  .note .date{font-size:.8rem; color:var(--gold); font-weight:600; letter-spacing:.08em; text-transform:uppercase}
+
+  /* About */
+  .about{background:var(--paper-2)}
+  .about .wrap{display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:center}
+  .since{font:700 clamp(5rem,12vw,9rem)/.9 var(--serif); color:var(--red)}
+  .since small{display:block; font:600 .85rem var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin-top:10px}
+  .about p{font-size:1.08rem}
+
+  /* Substack */
+  .substack{text-align:center}
+  .substack .lede{margin:0 auto 26px}
+  .substack .ctas{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+
+  /* Contact */
+  .contact{border-top:1px solid var(--line)}
+  .contact-grid{display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:24px; margin-top:32px}
+  .contact-grid div{background:#fff; border:1px solid var(--line); border-radius:14px; padding:24px}
+  .contact-grid span{display:block; font:600 .75rem var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:6px}
+  .contact-grid a, .contact-grid b{font-size:1.1rem; font-weight:600; color:var(--ink); text-decoration:none; overflow-wrap:break-word}
+  .contact-grid a:hover{color:var(--red)}
+
+  footer{background:var(--ink); color:#bdb3a2; padding:40px 0; font-size:.9rem}
+  footer .wrap{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; align-items:center}
+  footer a{color:#efe8da; text-decoration:none; margin-left:18px}
+  footer a:hover{color:#fff}
+  footer img{height:36px; width:auto}
+
+  @media (max-width:900px){
+    .hero .wrap,.support .wrap,.about .wrap{grid-template-columns:1fr; gap:36px}
+    .programs,.notes,.contact-grid{grid-template-columns:1fr}
+    .card.wide{flex-direction:column}
+    .card.wide .media{aspect-ratio:16/10}
+    .sunday-strip{grid-template-columns:1fr}
+    .sunday-strip div{border-right:0; border-bottom:1px solid var(--line); display:flex; align-items:baseline; gap:16px}
+    .sunday-strip div:last-child{border-bottom:0}
+    .menu-btn{display:block}
+    .nav{display:none; position:absolute; top:64px; left:0; right:0; background:var(--paper); flex-direction:column; padding:20px; border-bottom:1px solid var(--line); gap:16px}
+    .nav.open{display:flex}
+    section{padding:64px 0}
+    footer a{margin:0 18px 0 0}
+  }
+</style>
+</head>
+<body>
+
+<div class="alert">
+  Radio Free Classical needs <strong>$200/month</strong> in listener support to stay on the air past <strong>December 1, 2026</strong>. <a href="#support">Here’s how you can help →</a>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Radio Free Classical home"><img src="assets/RFC-logo.png" alt="Radio Free Classical"></a>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false" onclick="const n=document.querySelector('.nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">☰</button>
+    <nav class="nav" onclick="if(event.target.tagName==='A')this.classList.remove('open')">
+      <a href="#listen">Listen</a>
+      <a href="#programs">Programs</a>
+      <a href="#symphony">Sunday Symphony</a>
+      <a href="#notes">Notes</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-red" href="#support">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO / LISTEN -->
+<section class="hero" id="listen">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Independent · Commercial-free · Streaming 24/7</p>
+      <h1>Classical music… <em>free to all.</em></h1>
+      <p class="lede">The great works, the hidden gems and the stories behind them — hand-picked by a public radio host with more than 40 years behind the microphone.</p>
+      <div class="ctas">
+        <a class="btn btn-red" href="#support">Keep RFC on the air</a>
+        <a class="btn btn-ghost" href="#programs">See the Sunday lineup</a>
+      </div>
+      <p class="place">From Lanesville, Indiana to the world</p>
+    </div>
+    <div class="player">
+      <div class="live"><span class="dot"></span> On the air now</div>
+      <iframe src="https://live365.com/embeds/v1/player/a13949?s=md&amp;m=dark&amp;c=mp3" title="Radio Free Classical live stream" loading="lazy" allow="autoplay"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="support" id="support">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">An important announcement</p>
+      <h2>Can we keep Radio Free Classical on the air?</h2>
+      <p>Running the station costs about $200 a month for broadcasting, music purchases and the website. Alan has paid for it himself until now, but his family’s circumstances have changed. If listeners can cover that $200 each month, the music keeps playing. If not, RFC will shut down on December 1, 2026.</p>
+      <details class="letter">
+        <summary>Read Alan’s letter to listeners</summary>
+        <blockquote>
+          <p>For more than 40 years, I’ve had the privilege of creating classical music programs and sharing my love of this music with listeners. Radio Free Classical has been the culmination of that lifelong passion: an independent, commercial-free station offering a wide variety of classical music, special programs, composer tributes, and discoveries that often fall outside the usual classical repertoire.</p>
+          <p>I don’t want to shut down Radio Free Classical. I love doing this. But I also have to be realistic about what I can afford.</p>
+          <p>Every contribution matters. Even $5 helps. A handful of regular monthly supporters could make an enormous difference.</p>
+          <p>If Radio Free Classical has brought you pleasure, introduced you to music you might never otherwise have heard, or simply provided some welcome companionship throughout your day, I hope you’ll consider helping us keep it alive.</p>
+          <p>Thank you for listening. Let’s see if we can keep the music playing.<br>— Alan Brandt</p>
+        </blockquote>
+      </details>
+    </div>
+    <div class="goal">
+      <span class="deadline">Deadline: December 1, 2026</span>
+      <div class="big">$200 <small>/ month keeps us on the air</small></div>
+      <ul>
+        <li>Even $5 helps</li>
+        <li>A few monthly supporters make an enormous difference</li>
+        <li>No ads, no commercials, ever</li>
+      </ul>
+      <div class="ctas">
+        <a class="btn btn-light" href="https://buymeacoffee.com/radiofreeclassical" target="_blank" rel="noopener">☕ Buy us a coffee</a>
+        <a class="btn btn-ghost" href="https://www.paypal.com/donate?business=radiofreeclassical@gmail.com" target="_blank" rel="noopener">Donate via PayPal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="wrap">
+    <p class="eyebrow">Programs</p>
+    <h2>Sundays are something special</h2>
+    <p class="lede">Three distinctive programs, six unforgettable hours, every Sunday evening — plus musical tributes whenever the classical world makes news. All times Eastern.</p>
+
+    <div class="sunday-strip" aria-label="Sunday schedule">
+      <div><b>6:00</b><span>An English Pastorale</span></div>
+      <div><b>8:00</b><span>Sunday Symphony</span></div>
+      <div><b>10:00</b><span>The Great Unknowns</span></div>
+    </div>
+
+    <div class="programs">
+      <article class="card">
+        <div class="media"><img src="assets/pastorale.jpg" alt="An English Pastorale" loading="lazy"></div>
+        <div class="body">
+          <span class="when">Sundays at 6</span>
+          <h3>An English Pastorale</h3>
+          <p>A trip to a scenic English garden, a lazy Shropshire river and a quiet Yorkshire glen. Pastoral music, mostly by 20th-century British composers.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media contain" style="background:#111"><img src="assets/sunday-symphony.jpg" alt="The Sunday Symphony" loading="lazy"></div>
+        <div class="body">
+          <span class="when">Sundays at 8</span>
+          <h3>Sunday Symphony</h3>
+          <p>A major symphony performed complete, with background on how the work was written and first performed. Some run past an hour, so settle in. <a href="#symphony">See past programs ↓</a></p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media"><img src="assets/great-unknowns.jpg" alt="The Great Unknowns" loading="lazy"></div>
+        <div class="body">
+          <span class="when">Sundays at 10</span>
+          <h3>The Great Unknowns</h3>
+          <p>Music you may not know, even from famous composers. From Leopold Mozart’s “Peasant Wedding” to Louis Spohr’s Symphony No. 4.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media contain" style="background:#fff"><img src="assets/clef-notes.jpg" alt="Clef Notes" loading="lazy"></div>
+        <div class="body">
+          <span class="when">A new theme every week</span>
+          <h3>Clef Notes</h3>
+          <p>A different classical theme each week, from “Cities in Music” and “Variations on a Theme” to “Friends of Mozart.” Host Alan Brandt draws connections that make the music even more interesting.</p>
+        </div>
+      </article>
+      <article class="card wide">
+        <div class="media"><img src="assets/special-programs.jpg" alt="Special programs" loading="lazy"></div>
+        <div class="body">
+          <span class="when">Within a week of major events</span>
+          <h3>Special Programs</h3>
+          <p>When something major happens in classical music, you’ll hear about it on Radio Free Classical. Past specials include musical memorials for Sir Roger Norrington, Alfred Brendel, Michael Tilson Thomas, Felicity Lott and Stephen Kovacevich, with recordings, performances and sometimes interviews from across their careers.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SUNDAY SYMPHONY ARCHIVE -->
+<section class="archive" id="symphony">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#e2b866">The Sunday Symphony · Sundays at 8 Eastern</p>
+    <h2>Full-scale symphonies, complete, as the composer intended</h2>
+    <p class="lede">Alan opens each broadcast with the composer’s influences and inspirations, plus anything interesting about the chosen recording. Here’s what RFC has presented so far. Listen for rebroadcasts.</p>
+
+    <div class="next">
+      <span class="when">Coming up · November 15</span>
+      <h3>Vaughan Williams: Symphony No. 5</h3>
+      <p>One of the composer’s most serene achievements. Written during the turmoil of World War II and dedicated to Sibelius, it unfolds with warmth, reflection and quiet conviction, finding beauty and reassurance in the darkest of times.</p>
+    </div>
+
+    <ul class="sym-list">
+      <li><details><summary>Bruckner: Symphony No. 7</summary><p>A monument of late Romanticism, full of soaring faith and immense scale. Its slow movement, among the most moving ever written, was composed as Bruckner sensed the approaching death of his hero Wagner.</p></details></li>
+      <li><details><summary>Mahler: Symphony No. 1 “Titan”</summary><p>Birdsong, folk dances, military marches and heartbreaking lyricism in one story, from a mysterious dawn to a triumphant finale.</p></details></li>
+      <li><details><summary>Mozart: Symphony No. 39</summary><p>From Mozart’s astonishing final summer of symphonies: elegance and surprising emotional depth, wit and effortless invention in perfect balance.</p></details></li>
+      <li><details><summary>Mendelssohn: Symphony No. 3 “Scottish”</summary><p>Misty landscapes and ancient ruins turned into a Romantic journey of windswept dances, storms and a noble homecoming.</p></details></li>
+      <li><details><summary>Sibelius: Symphony No. 2</summary><p>Quiet beginnings grow into one of classical music’s most exhilarating finales. A symbol of Finnish resilience, determination and hope.</p></details></li>
+      <li><details><summary>Schubert: Symphony No. 9 “The Great”</summary><p>Endless melody and irresistible rhythmic drive. Schumann famously praised its “heavenly length.”</p></details></li>
+      <li><details><summary>Beethoven: Symphony No. 9</summary><p>Chorus and soloists burst into the “Ode to Joy,” turning the symphony into a universal celebration of human brotherhood.</p></details></li>
+      <li><details><summary>Rachmaninoff: Symphony No. 2</summary><p>A sweeping Romantic epic and a triumphant comeback after the disastrous premiere of his First Symphony.</p></details></li>
+      <li><details><summary>Shostakovich: Symphony No. 4</summary><p>Bold, unsettling and decades ahead of its time, pushing the orchestra to astonishing extremes.</p></details></li>
+      <li><details><summary>Prokofiev: Symphony No. 5</summary><p>Presented on the Sunday Symphony. Listen for a rebroadcast.</p></details></li>
+      <li><details><summary>Brahms: Symphony No. 4</summary><p>Presented on the Sunday Symphony. Listen for a rebroadcast.</p></details></li>
+    </ul>
+  </div>
+</section>
+
+<!-- NOTES (formerly Blog) -->
+<section id="notes">
+  <div class="wrap">
+    <p class="eyebrow">Notes from the station</p>
+    <h2>Following the classical world</h2>
+    <p class="lede">RFC keeps up with current events in classical music, and adds memorial and theme series to the schedule so listeners can appreciate the artists who shaped it.</p>
+
+    <div class="notes">
+      <article class="note">
+        <img src="assets/kovacevich.jpg" alt="Stephen Kovacevich tribute" loading="lazy" style="object-fit:contain;background:#0d0d0d">
+        <div class="body">
+          <span class="date">Tribute · Oct 29 &amp; 30</span>
+          <h3>Stephen Kovacevich, 1940–2026</h3>
+          <p>One of the most searching pianists of his generation. He studied with Dame Myra Hess, left landmark Beethoven recordings, and partnered with Sir Colin Davis, Jacqueline du Pré and Martha Argerich. Around 2000 he appeared as a soloist with the Louisville Orchestra.</p>
+          <p>RFC aired a two-hour tribute of his finest recordings.</p>
+        </div>
+      </article>
+      <article class="note">
+        <img src="assets/norrington.jpg" alt="Sir Roger Norrington" loading="lazy" style="object-position:center 25%">
+        <div class="body">
+          <span class="date">Tribute</span>
+          <h3>Sir Roger Norrington</h3>
+          <p>Norrington, who died at 91, was one of the great pioneers of the early music revival. RFC paid tribute with a three-hour selection of his recordings.</p>
+          <p><a href="https://www.theguardian.com/music/2025/jul/20/sir-roger-norrington-obituary" target="_blank" rel="noopener">Read the obituary in The Guardian →</a></p>
+        </div>
+      </article>
+      <article class="note">
+        <img src="assets/composer-lifespans.jpg" alt="Timeline of composers' lifespans" loading="lazy" style="object-fit:contain;background:#fff">
+        <div class="body">
+          <span class="date">Curiosity</span>
+          <h3>When the giants overlapped</h3>
+          <p>A timeline of composers’ lives shows two remarkable moments: the Baroque, with Bach, Vivaldi and Handel all at work, and the Romantic age, when Rossini, Liszt, Schubert, Brahms, Tchaikovsky and Dvořák were creating at once.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="since">1983<small>On public radio since</small></div>
+    <div>
+      <p class="eyebrow">About Radio Free Classical</p>
+      <h2>One host, one lifelong passion</h2>
+      <p>Radio Free Classical was created by <strong>Alan Brandt</strong>, a classical radio host and producer for public radio since 1983. He has brought his extensive knowledge and music collection online for you to enjoy.</p>
+      <p>His mission is not only to keep the classics alive, but to educate listeners about lesser-known composers and musicians.</p>
+      <p><em>Classical music is for everyone.</em></p>
+      <a class="btn btn-red" href="#support">Support the station</a>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSTACK -->
+<section class="substack">
+  <div class="wrap">
+    <p class="eyebrow">Radio Free Classical is on Substack</p>
+    <h2>Read along between broadcasts</h2>
+    <p class="lede">Free articles and subscriber content from Alan, all about the music, the composers and the programs.</p>
+    <div class="ctas">
+      <a class="btn btn-red" href="https://radiofreeclassical.substack.com/" target="_blank" rel="noopener">Read free articles</a>
+      <a class="btn btn-ghost" href="https://substack.com/@radiofreeclassical" target="_blank" rel="noopener">Follow on Substack</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Get in touch</h2>
+    <p class="lede">Questions, requests or a kind word for the host? We’d love to hear from you.</p>
+    <div class="contact-grid">
+      <div><span>Email</span><a href="mailto:radiofreeclassical@gmail.com">radiofreeclassical@gmail.com</a></div>
+      <div><span>Phone</span><a href="tel:+15023547245">(502) 354-7245</a></div>
+      <div><span>Location</span><b>Lanesville, Indiana</b></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:flex;align-items:center;gap:14px"><img src="assets/RFC-ICON.png" alt=""> © 2026 Radio Free Classical · Classical music for all</div>
+    <nav>
+      <a href="https://radiofreeclassical.substack.com/" target="_blank" rel="noopener">Substack</a>
+      <a href="https://buymeacoffee.com/radiofreeclassical" target="_blank" rel="noopener">Buy Me a Coffee</a>
+      <a href="https://www.paypal.com/donate?business=radiofreeclassical@gmail.com" target="_blank" rel="noopener">PayPal</a>
+      <a href="mailto:radiofreeclassical@gmail.com">Email</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
